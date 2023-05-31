@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 35%;
+            padding: 20px;
+            height: 300px;
+            box-shadow: 1px 1px 1px 2px;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: fixed;
+            left: 20%;
+            bottom: 25%;
+
+
+        }
+
+        .box input {
+            width: 200px;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: dodgerblue;
+            border: none;
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="A" name="B" placeholder="A">
+    <input type="text" id="B" name="A" placeholder="B">
+    <button id="input">value c</button>
+    <p id="solu"></p>
+    <script>
+        let inp1;
+        let inp2;
+        let pt;
+        let button=document.getElementById("input")
+        let c
+
+        button.addEventListener("click", function () {
+           inp1=document.getElementById("A").value;
+           inp1=Number(inp1)
+           inp2=document.getElementById("B").value;
+           inp2=Number(inp2)
+           c=  Math.sqrt(Math.pow(inp1,2) + Math.pow(inp2,2))
+           document.getElementById("solu").innerHTML= c
+
+
+        
+        })
+    </script>
+</body>
+
+</html>

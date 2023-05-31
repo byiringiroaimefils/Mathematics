@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            overflow: hidden;
+            /* font-family: cursive; */
+            border: 2px solid;
+            /* background-color: #234; */
+        }
+
+        .all h4 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .all h4 span {
+            color: dodgerblue;
+        }
+
+        .container {
+            position: fixed;
+            top: 190px;
+            left: 90px;
+        }
+
+        .container .box {
+            position: absolute;
+            /* width: %; */
+            padding: 20px;
+            box-shadow: 1px 1px 1px 2px #ccc;
+            border-radius: 5px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container .four {
+            width: 35%;
+            padding: 20px;
+            box-shadow: 1px 1px 1px 2px;
+            background-color: white;
+        }
+
+        .container .box input {
+            padding: 20px;
+            width: 250px;
+            background-color: #ccc;
+            border: none;
+            outline: none;
+            border-radius: 2px;
+            color: black;
+
+        }
+
+        .container #btn button {
+            /* padding: 5px; */
+            height: 45px;
+            width: 65px;
+            background-color: dodgerblue;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+
+        .container #btn button:hover {
+            transform: translateY(-6px);
+        }
+
+        .start {
+            width: 290px;
+            height: 395px;
+            background-color: black;
+        }
+        .start button{
+            padding: 20px;
+            width: 200px;
+            background-color: dodgerblue;
+            border: none;
+            color: white;
+            font-size: 20px;
+        }
+        .box button{
+            width: 200px;
+            background-color: dodgerblue;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer
+            /* padding: 5px; */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <h4><span>M</span>athematics <span>S</span>olve</h4>
+        <div class="container">
+
+            <div class="box one">
+                <h4>Find Value A</h4>
+                <label for="">Hypotenuse</label> <br>
+                <input type="text" id="inpu1" name=" valueA" placeholder="Enter value "> <br>
+                <label for="">Leg B <B></B></label> <br>
+                <input type="text" id="inpu2" name=" valueA" placeholder="Enter value ">
+                <p id="ValueA"></p>
+                <button id="valua" style="font-size: 15px;">Solve</button><br>
+                <div id="btn">
+                    <button onclick="valuea()">ValueA</button>
+                    <button onclick="valueb()">ValueB</button>
+                    <button onclick="valuec()">ValueC</button>
+                </div>
+
+            </div>
+            <div class="box two">
+                <h4>Find ValueB</h4>
+                <label for="">Hypotenuse</label> <br>
+                <input type="text" id="inpu3" name=" valueA" placeholder="Enter value C"> <br>
+                <label for="">Leg A</label> <br>
+                <input type="text" id="inpu4" name=" valueA" placeholder="Enter value A">
+                <p id="ValueB"></p>
+                <button id="valub" style="font-size: 15px;">Solve</button><br>
+                <div id="btn">
+                    <button onclick="valuea()">ValueA</button>
+                    <button onclick="valueb()">ValueB</button>
+                    <button onclick="valuec()">ValueC</button>
+                </div>
+
+            </div>
+            <div class="box three">
+                <h4>Solve For Hypotenuse</h4>
+                <label for="">Leg A</label> <br>
+                <input type="text" id="inpu5" name=" valueA" placeholder="Enter value "><br>
+                <label for="">Leg B</label><br>
+                <input type="text" id="inpu6" name=" valueA" placeholder="Enter value ">
+                <p id="ValueC"></p>
+                <button id="valuc" style="font-size: 15px;">Solve</button><br>
+                <div id="btn">
+                    <button onclick="valuea()">ValueA</button>
+                    <button onclick="valueb()">ValueB</button>
+                    <button onclick="valuec()">ValueC</button>
+                </div>
+
+            </div>
+            <div class="box start">
+                <h3>PYTHAGORAS’ THEOREM</h3> <br> <br> <br>
+                <button onclick="start()">START</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let box1 = document.querySelector(".one")
+        // console.log(box1)
+        let box2 = document.querySelector(".two")
+        // console.log(box2)
+        let box3 = document.querySelector(".three")
+        // console.log(box3)
+        let box4 = document.querySelector(".four")
+        let box5 = document.querySelector(".start")
+        // console.log(box5)
+
+        // 
+
+        let ans1 = document.getElementById("ValueA")
+        //  console.log(ans1)
+        let ans2 = document.getElementById("ValueB")
+        //  console.log(ans2)
+        let ans3 = document.getElementById("ValueC")
+        //  console.log(ans3)
+
+        let a;
+        let b;
+        let c;
+        let ans;
+
+
+
+        let solvea = document.getElementById("valua")
+
+
+        solvea.addEventListener("click", function () {
+            b = document.getElementById("inpu1").value
+            b = Number(b)
+            c = document.getElementById("inpu2").value
+            c = Number(c)
+            a = Math.sqrt(Math.pow(b, 2) - Math.pow(c, 2))
+            ans = document.getElementById("ValueA")
+            ans.innerHTML = "The value of Leg  A:" + a
+
+
+
+        })
+
+        let solveb = document.getElementById("valub")
+
+
+
+        solveb.addEventListener("click", function () {
+            a = document.getElementById("inpu3").value
+            a = Number(a)
+            c = document.getElementById("inpu4").value
+            c = Number(c)
+            b = Math.sqrt(Math.pow(a, 2) - Math.pow(c, 2))
+            ans = document.getElementById("ValueB")
+            ans.innerHTML = "The value of Leg  B:" + b
+
+        })
+
+        let solvec = document.getElementById("valuc")
+
+
+        solvec.addEventListener("click", function () {
+            a = document.getElementById("inpu5").value
+            a = Number(a)
+            b = document.getElementById("inpu6").value
+            b = Number(b)
+            c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))
+            ans = document.getElementById("ValueC")
+            ans.innerHTML = "The value of Hypotenuse:" + c
+
+        })
+
+
+        function start() {
+            box1.style.display = "flex"
+            box2.style.display = "none"
+            box3.style.display = "none"
+            box5.style.display = "none"
+        }
+
+        function valuea() {
+            box1.style.display = "flex"
+            box2.style.display = "none"
+            box3.style.display = "none"
+        }
+        function valueb() {
+            box1.style.display = "none"
+            box2.style.display = "flex"
+            box3.style.display = "none"
+        }
+        function valuec() {
+            box1.style.display = "none"
+            box2.style.display = "none"
+            box3.style.display = "flex"
+        }
+
+
+    </script>
+</body>
+
+</html>
